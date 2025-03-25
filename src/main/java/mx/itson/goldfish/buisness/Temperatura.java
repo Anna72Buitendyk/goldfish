@@ -10,4 +10,12 @@ package mx.itson.goldfish.buisness;
  */
 public class Temperatura {
     
+    /**
+     * 
+     * @param centigrados float temperatura en centigrados
+     * @return 
+     */
+    public float Convertir( float centigrados ){
+        return centigrados * (9/5) + 32;
+    }
 }

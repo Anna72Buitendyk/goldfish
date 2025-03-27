@@ -4,6 +4,8 @@
  */
 package mx.itson.goldfish.ui;
 
+import mx.itson.goldfish.buisness.Temperatura;
+
 /**
  *
  * @author alumnog
@@ -56,7 +58,9 @@ public class Main extends javax.swing.JFrame {
         lblFahernheit.setFont(new java.awt.Font("Yu Gothic Medium", 0, 18)); // NOI18N
         lblFahernheit.setText("Fahernheit");
 
+        lblResultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblResultado.setText("...");
+        lblResultado.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,10 +68,10 @@ public class Main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(33, 33, 33)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNombre)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(136, 136, 136)
@@ -103,7 +107,14 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTemperaturaActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        
+        try{
+        float centigrados = Float.parseFloat(txtTemperatura.getText());
+        float fahernheit = Temperatura.convertir(centigrados);
+        lblResultado.setText(Float.toString(fahernheit));
+        }
+        catch (Exception ex){
+        lblResultado.setText("Error en conversion. Valor invalido.");
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**

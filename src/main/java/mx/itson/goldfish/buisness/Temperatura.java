@@ -11,11 +11,11 @@ package mx.itson.goldfish.buisness;
 public class Temperatura {
     
     /**
-     * 
-     * @param centigrados float temperatura en centigrados
-     * @return 
+     * Convierte grados centigrados hasta grados fahernheit.
+     * @param centigrados Temperatura en centigrados representado como float
+     * @return Temperatura en fahernheit representados como float
      */
-    public float Convertir( float centigrados ){
-        return centigrados * (9/5) + 32;
+    public static float convertir( float centigrados ){
+        return centigrados * (1.8f) + 32;
     }
 }
